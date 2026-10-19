@@ -1,0 +1,108 @@
+<!doctype html>
+<!-- 参考台：用与上游字节一致的 vendor 渲染器，在受控视口里复现"原始默认参数"画面。
+     用法: harness.html?scene=<id>   （配合 tools/reference-shot.cjs 截图）
+     说明: localStorage 为空 → 渲染器用内嵌默认值（与原版新装机一致）；
+          层底色与上游各场景控制器一致（见 lib/client.js SCENE_LAYER_BG）。 -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;}
+  #layer{position:fixed;inset:0;width:100vw;height:100vh;contain:strict;overflow:hidden;background:#000;}
+  #err{position:fixed;left:8px;bottom:8px;color:#f66;font:12px monospace;white-space:pre-wrap;z-index:9;}
+</style>
+</head>
+<body>
+<div id="layer"></div>
+<div id="err"></div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var scene = q.get("scene") || "milky-way";
+  var activeIndex = q.get("activeIndex"); // 对齐 app 选中图：prepareDefaults 取 manifest 序列第 N 张
+  var BG = {
+    "milky-way": "#02090d", "aurora-ionosphere": "#02090d", "cloud-train": "#02090d",
+    "mountain": "#02090d", "pixel-sculpt": "#02090d", "heavenly-cloud": "#020408",
+    "black-hole": "#000000", "glow-horizon": "#050507", "blinking-squares": "#000000",
+    "particle-image": "#000000",
+  };
+  // 独立隔离的 localStorage：可控参数（空 = 内嵌默认）
+  var layer = document.getElementById("layer");
+  layer.style.background = BG[scene] || "#000";
+  layer.setAttribute("data-code-codex-particle-layer", "v1");
+  window.__sceneId = scene;
+  var s = document.createElement("script");
+  s.src = "../../lib/vendor/code-codex/" + scene + ".js";
+  s.onerror = function () { document.getElementById("err").textContent = "script load failed: " + scene; };
+  document.head.appendChild(s);
+  window.__startWhenReady = function () {
+    var reg = window[Symbol.for("code-codex:background-modules:v1")];
+    var entry = reg && reg.get(scene);
+    if (!entry) return false;
+    var prep = Promise.resolve();
+    if (scene === "particle-image" || scene === "pixel-sculpt") {
+      // 与 DSH client 的 ensureGallery 同构：播种默认图库 + prepareDefaults
+      prep = fetch("../../lib/vendor/code-codex/galleries.json")
+        .then(function (r) { return r.json(); })
+        .then(function (index) {
+          var meta = index && index[scene];
+          if (!meta) throw new Error("gallery index missing: " + scene);
+          return Promise.all(meta.images.map(function (img) {
+            var load = function (file) {
+              return fetch("../../lib/vendor/code-codex/" + scene + "/media/" + file)
+                .then(function (r) { return r.arrayBuffer(); })
+                .then(function (buf) {
+                  var bytes = new Uint8Array(buf), bin = "";
+                  for (var i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+                  return btoa(bin);
+                });
+            };
+            return load(img.dataFile).then(function (dataB64) {
+              var e2 = { id: img.id, name: img.name, type: img.type, size: img.size, sha256: img.sha256, data: dataB64, createdAt: img.createdAt || 0, order: img.order };
+              if (!img.thumbFile) return e2;
+              return load(img.thumbFile).then(function (t) { e2.thumbnail = t; return e2; });
+            });
+          })).then(function (entries) {
+            var images = new Map();
+            entries.forEach(function (e2) { images.set(e2.id, e2); });
+            var reg2 = window[Symbol.for("code-codex:default-galleries:v1")] = window[Symbol.for("code-codex:default-galleries:v1")] || new Map();
+            reg2.set(scene, { count: meta.count, version: meta.version, images: images });
+            if (activeIndex !== null && meta.images[Number(activeIndex)]) {
+              var aid = meta.images[Number(activeIndex)].id;
+              try { localStorage.setItem("code-codex:" + scene + "-background:v1", JSON.stringify({ activeImageId: aid, selectedImageIds: [aid] })); } catch (e3) {}
+            }
+            var entry2 = window[Symbol.for("code-codex:background-modules:v1")].get(scene);
+            if (entry2 && typeof entry2.prepareDefaults === "function") return entry2.prepareDefaults();
+          });
+        });
+    }
+    prep.then(function () {
+      try {
+        var inst = entry.startup(layer, function (msg) {
+          if (msg) document.getElementById("err").textContent = "onError: " + msg;
+        });
+        if (inst && inst.ready && typeof inst.ready.then === "function") {
+          inst.ready.catch(function (e) {
+            document.getElementById("err").textContent = "ready rejected: " + ((e && e.message) || e);
+          });
+        }
+        window.__started = true;
+      } catch (e) {
+        document.getElementById("err").textContent = "startup threw: " + ((e && e.message) || e);
+        window.__started = true;
+      }
+    }, function (e) {
+      document.getElementById("err").textContent = "gallery seed failed: " + ((e && e.message) || e);
+      window.__started = true;
+    });
+    return true;
+  };
+  var waits = 0;
+  var timer = setInterval(function () {
+    if (window.__startWhenReady && window.__startWhenReady()) { clearInterval(timer); }
+    else if (++waits > 200) { clearInterval(timer); document.getElementById("err").textContent = "registry timeout: " + scene; }
+  }, 60);
+})();
+</script>
+</body>
+</html>

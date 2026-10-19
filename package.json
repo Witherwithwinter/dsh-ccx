@@ -40,5 +40,9 @@
       "platform": "web",
       "inject": []
     }
+  },
+  "devDependencies": {
+    "pixelmatch": "^8.0.0",
+    "pngjs": "^7.0.0"
   }
 }
