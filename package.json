@@ -1,6 +1,6 @@
 {
   "name": "dsh-awesome-appearances",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "DSH 界面背景主题插件（Appearance 系列，效果对齐 code-codex 原仓库）：原版全部 10 种场景渲染器（银河/辉光地平线/层峦/云穹/极光电离层/黑洞/云列车/粒子成像/像素雕塑/闪烁方块）原样 vendor、壁纸/视频素材库、通配透明 + data-slot 分区蒙版（对齐原仓库 surface-opacity）、实时预览 + 原版式场景设置抽屉（预设质量三档、每场景双语参数滑杆、五色色板、应用/重置）。深浅色自适应，设置双端同步。",
   "keywords": [
     "dsh",

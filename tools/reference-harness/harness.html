@@ -20,6 +20,7 @@
   var q = new URLSearchParams(location.search);
   var scene = q.get("scene") || "milky-way";
   var activeIndex = q.get("activeIndex"); // 对齐 app 选中图：prepareDefaults 取 manifest 序列第 N 张
+  var paused = q.get("paused") === "1"; // 相位对齐：启动前写 paused:true，冻结在 t=0 帧
   var BG = {
     "milky-way": "#02090d", "aurora-ionosphere": "#02090d", "cloud-train": "#02090d",
     "mountain": "#02090d", "pixel-sculpt": "#02090d", "heavenly-cloud": "#020408",
@@ -35,6 +36,15 @@
   s.src = "../../lib/vendor/code-codex/" + scene + ".js";
   s.onerror = function () { document.getElementById("err").textContent = "script load failed: " + scene; };
   document.head.appendChild(s);
+  if (paused) {
+    try {
+      var key = "code-codex:" + scene + (["mountain", "cloud-train", "pixel-sculpt"].indexOf(scene) >= 0 ? "-settings:v1" : "-background:v1");
+      var cur = {};
+      try { cur = JSON.parse(localStorage.getItem(key) || "{}"); } catch (e4) {}
+      cur.paused = true;
+      localStorage.setItem(key, JSON.stringify(cur));
+    } catch (e4) {}
+  }
   window.__startWhenReady = function () {
     var reg = window[Symbol.for("code-codex:background-modules:v1")];
     var entry = reg && reg.get(scene);

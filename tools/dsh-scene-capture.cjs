@@ -23,6 +23,8 @@ const LAYER_BG = {
   'blinking-squares': 'rgb(0, 0, 0)', 'particle-image': 'rgb(0, 0, 0)',
 };
 const SCENES = ONLY.length ? ONLY : Object.keys(SETTLE);
+// 支持 paused 的场景（defaults 里有 paused 键）：相位对齐比对（冻结 t=0 帧）
+const PAUSABLE = { 'milky-way': 1, mountain: 1, 'heavenly-cloud': 1, 'aurora-ionosphere': 1, 'black-hole': 1, 'cloud-train': 1, 'blinking-squares': 1 };
 
 const ws = new WebSocket('ws://127.0.0.1:9222/devtools/page/' + targetId);
 let seq = 0;
@@ -51,7 +53,8 @@ async function evalJs(expression, awaitPromise) {
 }
 
 async function switchScene(id) {
-  await evalJs(`fetch('/dsh-appearances/state-save.json',{method:'POST',credentials:'omit',headers:{'Content-Type':'application/json'},body:JSON.stringify({settings:{enabled:true,mode:'scene',scene:${JSON.stringify(id)},surfaces:{enabled:true,sidebar:66,conversation:58,composer:58,header:0,right:66},dim:0,blur:0,sceneParams:{}}})}).then(r=>r.json()).then(j=>j.ok===true||j.ok==='1')`, true);
+  var params = PAUSABLE[id] ? { paused: true } : {};
+  await evalJs(`fetch('/dsh-appearances/state-save.json',{method:'POST',credentials:'omit',headers:{'Content-Type':'application/json'},body:JSON.stringify({settings:{enabled:true,mode:'scene',scene:${JSON.stringify(id)},surfaces:{enabled:true,sidebar:66,conversation:58,composer:58,header:0,right:66},dim:0,blur:0,sceneParams:${JSON.stringify(params)}}})}).then(r=>r.json()).then(j=>j.ok===true||j.ok==='1')`, true);
 }
 
 async function waitReady(id, timeoutMs) {

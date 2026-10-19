@@ -10,6 +10,7 @@ const http = require('http');
 const SCENE = process.argv[2] || 'milky-way';
 const OUT = process.argv[3] || `docs/reference/harness-${SCENE}.png`;
 const SETTLE = Number(process.argv[4] || 10000);
+const PAUSED = process.argv.includes('--paused');
 const W = 1280, H = 816, DPR = 1.5;
 const PORT = 9333; // Edge CDP
 const HTTP_PORT = 9339; // 静态资源服务
@@ -38,7 +39,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function main() {
   fs.mkdirSync(path.dirname(path.resolve(OUT)), { recursive: true });
   await new Promise((res) => server.listen(HTTP_PORT, '127.0.0.1', res));
-  const HTML = `http://127.0.0.1:${HTTP_PORT}/tools/reference-harness/harness.html?scene=${SCENE}`;
+  const HTML = `http://127.0.0.1:${HTTP_PORT}/tools/reference-harness/harness.html?scene=${SCENE}${PAUSED ? '&paused=1' : ''}`;
   const profile = fs.mkdtempSync(path.join(require('os').tmpdir(), 'ref-harness-'));
   const edge = spawn(EDGE, [
     '--headless=new', '--remote-debugging-port=' + PORT,
