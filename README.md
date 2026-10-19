@@ -116,6 +116,10 @@ docs/                   桌面端实机截图
 
 ## 实机截图
 
+![辉光地平线 + 原版式设置抽屉](docs/screenshot-drawer-glow.png)
+
+![银河 + 分区蒙版](docs/screenshot-milkyway-defaults.png)
+
 ![黑洞 + 实时预览面板](docs/screenshot-blackhole-panel.png)
 
 ![粒子成像](docs/screenshot-particle-image.png)
