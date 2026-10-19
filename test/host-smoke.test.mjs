@@ -64,14 +64,19 @@ async function call(pathname, method, body) {
   return { status: res.code, json: (() => { try { return JSON.parse(res.body) } catch { return null } })(), headers: res.headers, body: res.body }
 }
 
-// 1) 初始状态 = 默认值（v3：分区蒙版）
+// 1) 初始状态 = 默认值（v5：蒙版对齐原版两档，dim 关，无 quality）
 let r = await call('/dsh-appearances/state.json', 'GET')
 assert.strictEqual(r.status, 200)
 assert.strictEqual(r.json.ok, true)
 assert.deepStrictEqual(r.json.settings, DEFAULT_SETTINGS)
 assert.strictEqual(r.json.scenes.length, 10, "10 code-codex scenes")
 assert.strictEqual(DEFAULT_SETTINGS.scene, 'milky-way')
-assert.strictEqual(DEFAULT_SETTINGS.surfaces.composer, 86)
+assert.strictEqual(DEFAULT_SETTINGS.version, 5)
+assert.strictEqual(DEFAULT_SETTINGS.surfaces.composer, 58, 'composer = 原版主区档 .58')
+assert.strictEqual(DEFAULT_SETTINGS.surfaces.header, 0, '标题栏原版为全透明')
+assert.strictEqual(DEFAULT_SETTINGS.surfaces.sidebar, 66, '侧栏 = 原版侧栏档 .66')
+assert.strictEqual(DEFAULT_SETTINGS.dim, 0, '原版无压暗层')
+assert.strictEqual(DEFAULT_SETTINGS.quality, undefined, 'v4 死字段已移除')
 assert.deepStrictEqual(DEFAULT_SETTINGS.sceneParams, {})
 
 // 2) 保存：surfaces 夹取 + savedAt 写入 + 非法场景回退
@@ -124,7 +129,21 @@ r = await call('/dsh-appearances/vendor/particle-image.js', 'GET')
 assert.strictEqual(r.status, 200, 'particle-image served')
 r = await call('/dsh-appearances/scene-schemas.json', 'GET')
 assert.strictEqual(r.status, 200, 'scene schemas served')
-assert.ok(JSON.parse(r.body)['milky-way'].fields.length >= 10, 'milky-way schema fields')
+const schemas = JSON.parse(r.body)
+assert.ok(schemas['milky-way'].fields.length >= 10, 'milky-way schema fields')
+// schema 与上游真值的一致性锚点（防生成器回归到手抄模板）
+assert.strictEqual(schemas['milky-way'].defaults.speed, 0.35, 'milky-way 内嵌默认 speed')
+assert.strictEqual(schemas['milky-way'].defaults.quality, 'medium')
+assert.strictEqual(schemas['glow-horizon'].defaults.wheelSensitivity, 1, 'glow-horizon 滚轮物理默认')
+assert.strictEqual(schemas['glow-horizon'].defaults.openingDuration, 2)
+assert.ok(!('speed' in schemas['glow-horizon'].defaults), 'glow-horizon 无 speed 字段（旧模板污染）')
+assert.strictEqual(schemas['aurora-ionosphere'].defaults.introFeather, 0.16)
+assert.deepStrictEqual(Object.keys(schemas['black-hole'].presets || {}).sort(), ['cinema', 'ember', 'lens'], 'black-hole 三预设')
+assert.strictEqual(schemas['black-hole'].fields.filter((f) => f.group === 'camera').length, 6, 'black-hole camera 分组')
+assert.strictEqual(schemas['heavenly-cloud'].defaults.speed, 0.72)
+assert.strictEqual(schemas['mountain'].defaults.steps, 57)
+assert.strictEqual(schemas['cloud-train'].defaults.introDuration, 3)
+assert.strictEqual(schemas['blinking-squares'].defaults.responseSpeed, 14)
 r = await call('/dsh-appearances/vendor-galleries.json', 'GET')
 assert.strictEqual(r.status, 200, 'gallery index served')
 assert.ok(JSON.parse(r.body)['particle-image'].images.length === 6, 'gallery index has 6 images')
