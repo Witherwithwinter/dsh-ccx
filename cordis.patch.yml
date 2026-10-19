@@ -1,0 +1,16 @@
+# ============================================================================
+# dsh-awesome-appearances —— DSH bundle patch
+# ============================================================================
+# 插件的"挂载声明"。DSH 装配 bundle 层栈时把本行插入 profile 配置树：
+#   - 宿主半侧（lib/index.js）：注册 /dsh-appearances/* 路由（设置读写、壁纸上传/服务）。
+#   - 浏览器半侧（lib/client.js）：由 package.json 的 dsh.client + exports["./client"]
+#     声明，DSH 客户端模块系统自动通过 /plugins/<id>/client.js 加载，无需 index 注入。
+#
+# 安装（官方桌面端）：profile 的 dsh.profile.bundles 加入 "dsh-awesome-appearances"，
+# 依赖写 "link:<本目录绝对路径>"（或交给桌面端会话里的 plugin_manager 安装）。
+# ============================================================================
+
+- insert:
+    - id: dsh-awesome-appearances
+      name: dsh-awesome-appearances
+      config: {}

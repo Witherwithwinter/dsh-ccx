@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1026"/>
+      <stop offset="1" stop-color="#101a33"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#37d2a4" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#37d2a4" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="aurora2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#38bdf8" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#sky)"/>
+  <circle cx="14" cy="15" r="1.4" fill="#cfe3ff" opacity="0.9"/>
+  <circle cx="24" cy="9" r="1" fill="#cfe3ff" opacity="0.7"/>
+  <circle cx="44" cy="12" r="1.2" fill="#cfe3ff" opacity="0.8"/>
+  <circle cx="53" cy="20" r="0.9" fill="#cfe3ff" opacity="0.6"/>
+  <path d="M4 40 C 14 22, 22 26, 30 34 C 40 44, 50 38, 60 24 L 60 58 L 4 58 Z" fill="url(#aurora)"/>
+  <path d="M4 46 C 16 32, 30 38, 42 32 C 50 28, 56 30, 60 34 L 60 58 L 4 58 Z" fill="url(#aurora2)" opacity="0.8"/>
+  <rect x="17" y="44" width="30" height="9" rx="4.5" fill="#0d1322" opacity="0.85"/>
+  <rect x="20" y="47" width="17" height="3" rx="1.5" fill="#5b8af5" opacity="0.9"/>
+</svg>

@@ -1,0 +1,805 @@
+{
+ "milky-way": {
+  "storeKey": "code-codex:milky-way-background:v1",
+  "qualityDefault": "medium",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Flow speed",
+    "min": 0,
+    "max": 3,
+    "step": 0.01,
+    "unit": ""
+   },
+   {
+    "key": "amplitude",
+    "zh": "波动幅度",
+    "en": "Wave amplitude",
+    "min": 0,
+    "max": 2,
+    "step": 0.01,
+    "unit": ""
+   },
+   {
+    "key": "frequency",
+    "zh": "波动频率",
+    "en": "Wave frequency",
+    "min": 0.1,
+    "max": 3,
+    "step": 0.01,
+    "unit": ""
+   },
+   {
+    "key": "zoom",
+    "zh": "画面缩放",
+    "en": "Scale",
+    "min": 0.3,
+    "max": 3,
+    "step": 0.01,
+    "unit": ""
+   },
+   {
+    "key": "rotation",
+    "zh": "画面旋转",
+    "en": "Rotation",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   },
+   {
+    "key": "exposure",
+    "zh": "画面亮度",
+    "en": "Brightness",
+    "min": 0,
+    "max": 2,
+    "step": 0.01,
+    "unit": ""
+   },
+   {
+    "key": "timeOffset",
+    "zh": "初始相位",
+    "en": "Initial phase",
+    "min": 0,
+    "max": 120,
+    "step": 0.01,
+    "unit": "s"
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.5,
+    "max": 8,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.01,
+    "max": 0.5,
+    "step": 0.01,
+    "unit": ""
+   },
+   {
+    "key": "introAngle",
+    "zh": "展开角度",
+    "en": "Reveal angle",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   },
+   {
+    "key": "introZoom",
+    "zh": "缩放强度",
+    "en": "Zoom strength",
+    "min": 0,
+    "max": 0.6,
+    "step": 0.01,
+    "unit": ""
+   }
+  ],
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ],
+  "defaults": {
+   "quality": "medium",
+   "speed": 0.35,
+   "amplitude": 1,
+   "frequency": 1,
+   "zoom": 1,
+   "rotation": 0,
+   "exposure": 1,
+   "timeOffset": 5.07,
+   "introDuration": 2.8,
+   "introFeather": 0.18,
+   "introAngle": 32,
+   "introZoom": 0.16,
+   "introEnabled": true,
+   "paused": false,
+   "colors": [
+    "#d81159",
+    "#8f2d56",
+    "#218380",
+    "#fbb13c",
+    "#73d2de"
+   ]
+  }
+ },
+ "glow-horizon": {
+  "storeKey": "code-codex:glow-horizon-background:v1",
+  "qualityDefault": "medium",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "波幅宽度",
+    "en": "Wave width",
+    "min": 0,
+    "max": 1,
+    "step": 0.01
+   },
+   {
+    "key": "amplitude",
+    "zh": "波动幅度",
+    "en": "Amplitude",
+    "min": 0,
+    "max": 3,
+    "step": 0.01
+   },
+   {
+    "key": "frequency",
+    "zh": "波动频率",
+    "en": "Frequency",
+    "min": 0,
+    "max": 3,
+    "step": 0.01
+   },
+   {
+    "key": "exposure",
+    "zh": "暗晕系数",
+    "en": "Exposure",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "rotation",
+    "zh": "暗晕旋转",
+    "en": "Rotation",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   },
+   {
+    "key": "zoom",
+    "zh": "暗晕宽度",
+    "en": "Zoom",
+    "min": 0.3,
+    "max": 2.5,
+    "step": 0.01
+   },
+   {
+    "key": "introZoom",
+    "zh": "初始缩位",
+    "en": "Intro zoom",
+    "min": -0.5,
+    "max": 0.5,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.5,
+    "max": 8,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "动态视化",
+    "en": "Intro feather",
+    "min": 0.02,
+    "max": 1,
+    "step": 0.01
+   },
+   {
+    "key": "introAngle",
+    "zh": "展开角度",
+    "en": "Reveal angle",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   }
+  ],
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ],
+  "defaults": {
+   "speed": 0.35,
+   "amplitude": 1,
+   "frequency": 1,
+   "exposure": 1,
+   "rotation": 0,
+   "zoom": 1,
+   "introZoom": 0.16,
+   "introDuration": 2.8,
+   "introFeather": 0.18,
+   "introAngle": 32
+  }
+ },
+ "mountain": {
+  "storeKey": "code-codex:mountain-settings:v1",
+  "qualityDefault": "medium",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Speed",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "amplitude",
+    "zh": "波动幅度",
+    "en": "Amplitude",
+    "min": 0,
+    "max": 3,
+    "step": 0.01
+   },
+   {
+    "key": "frequency",
+    "zh": "波动频率",
+    "en": "Frequency",
+    "min": 0,
+    "max": 3,
+    "step": 0.01
+   },
+   {
+    "key": "zoom",
+    "zh": "缩放",
+    "en": "Zoom",
+    "min": 0.3,
+    "max": 2.5,
+    "step": 0.01
+   },
+   {
+    "key": "rotation",
+    "zh": "旋转",
+    "en": "Rotation",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   },
+   {
+    "key": "exposure",
+    "zh": "曝光系数",
+    "en": "Exposure",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "timeOffset",
+    "zh": "时间偏移",
+    "en": "Time offset",
+    "min": 0,
+    "max": 20,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.5,
+    "max": 8,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.01,
+    "max": 0.5,
+    "step": 0.01
+   },
+   {
+    "key": "introAngle",
+    "zh": "展开角度",
+    "en": "Reveal angle",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   },
+   {
+    "key": "introZoom",
+    "zh": "缩放强度",
+    "en": "Zoom strength",
+    "min": 0,
+    "max": 0.6,
+    "step": 0.01
+   }
+  ],
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ],
+  "defaults": {
+   "speed": 0.35,
+   "amplitude": 1,
+   "frequency": 1,
+   "zoom": 1,
+   "rotation": 0,
+   "exposure": 1,
+   "timeOffset": 5.07,
+   "introDuration": 2.8,
+   "introFeather": 0.18,
+   "introAngle": 32,
+   "introZoom": 0.16
+  }
+ },
+ "heavenly-cloud": {
+  "storeKey": "code-codex:heavenly-cloud-background:v1",
+  "qualityDefault": "high",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Speed",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "intensity",
+    "zh": "云层强度",
+    "en": "Intensity",
+    "min": 0.3,
+    "max": 2.4,
+    "step": 0.01
+   },
+   {
+    "key": "turbulence",
+    "zh": "湍流",
+    "en": "Turbulence",
+    "min": 0.35,
+    "max": 1.65,
+    "step": 0.01
+   },
+   {
+    "key": "radius",
+    "zh": "云径",
+    "en": "Radius",
+    "min": 1.8,
+    "max": 4.6,
+    "step": 0.01
+   },
+   {
+    "key": "colorShift",
+    "zh": "色相偏移",
+    "en": "Color shift",
+    "min": -3.14,
+    "max": 3.14,
+    "step": 0.01
+   },
+   {
+    "key": "pointerInfluence",
+    "zh": "指针影响",
+    "en": "Pointer influence",
+    "min": 0,
+    "max": 1.2,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.8,
+    "max": 5,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.02,
+    "max": 0.8,
+    "step": 0.01
+   }
+  ],
+  "colors": null,
+  "defaults": {
+   "speed": 0.72,
+   "intensity": 1.15,
+   "turbulence": 1,
+   "radius": 3,
+   "colorShift": 0,
+   "pointerInfluence": 0.45,
+   "introDuration": 2.2,
+   "introFeather": 0.22
+  }
+ },
+ "aurora-ionosphere": {
+  "storeKey": "code-codex:aurora-ionosphere-background:v1",
+  "qualityDefault": "medium",
+  "fields": [
+   {
+    "key": "hue",
+    "zh": "色相",
+    "en": "Hue",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°"
+   },
+   {
+    "key": "saturation",
+    "zh": "饱和度",
+    "en": "Saturation",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Speed",
+    "min": 0,
+    "max": 3,
+    "step": 0.01
+   },
+   {
+    "key": "intensity",
+    "zh": "帘幕强度",
+    "en": "Intensity",
+    "min": 0,
+    "max": 3,
+    "step": 0.01
+   },
+   {
+    "key": "curtainScale",
+    "zh": "帘幕尺度",
+    "en": "Curtain scale",
+    "min": 0.05,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "turbulence",
+    "zh": "湍流",
+    "en": "Turbulence",
+    "min": 0,
+    "max": 1.8,
+    "step": 0.01
+   },
+   {
+    "key": "glow",
+    "zh": "辉光",
+    "en": "Glow",
+    "min": 0,
+    "max": 2.4,
+    "step": 0.01
+   },
+   {
+    "key": "starDensity",
+    "zh": "星密度",
+    "en": "Star density",
+    "min": 0,
+    "max": 1.5,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.6,
+    "max": 6,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.03,
+    "max": 0.4,
+    "step": 0.01
+   }
+  ],
+  "colors": null,
+  "defaults": {
+   "hue": 0,
+   "saturation": 1,
+   "speed": 1,
+   "intensity": 1,
+   "curtainScale": 0.5,
+   "turbulence": 0.58,
+   "glow": 0.72,
+   "starDensity": 0.56,
+   "introDuration": 2.4,
+   "introFeather": 0.2
+  }
+ },
+ "black-hole": {
+  "storeKey": "code-codex:black-hole-background:v1",
+  "qualityDefault": "high",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Speed",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "intensity",
+    "zh": "云层强度",
+    "en": "Intensity",
+    "min": 0.3,
+    "max": 2.4,
+    "step": 0.01
+   },
+   {
+    "key": "turbulence",
+    "zh": "湍流",
+    "en": "Turbulence",
+    "min": 0.35,
+    "max": 1.65,
+    "step": 0.01
+   },
+   {
+    "key": "radius",
+    "zh": "云径",
+    "en": "Radius",
+    "min": 1.8,
+    "max": 4.6,
+    "step": 0.01
+   },
+   {
+    "key": "colorShift",
+    "zh": "色相偏移",
+    "en": "Color shift",
+    "min": -3.14,
+    "max": 3.14,
+    "step": 0.01
+   },
+   {
+    "key": "pointerInfluence",
+    "zh": "指针影响",
+    "en": "Pointer influence",
+    "min": 0,
+    "max": 1.2,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.8,
+    "max": 5,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.02,
+    "max": 0.8,
+    "step": 0.01
+   }
+  ],
+  "colors": null,
+  "defaults": {
+   "speed": 0.72,
+   "intensity": 1.15,
+   "turbulence": 1,
+   "radius": 3,
+   "colorShift": 0,
+   "pointerInfluence": 0.45,
+   "introDuration": 2.2,
+   "introFeather": 0.22
+  }
+ },
+ "cloud-train": {
+  "storeKey": "code-codex:cloud-train-settings:v1",
+  "qualityDefault": "high",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Speed",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "intensity",
+    "zh": "云层强度",
+    "en": "Intensity",
+    "min": 0.3,
+    "max": 2.4,
+    "step": 0.01
+   },
+   {
+    "key": "turbulence",
+    "zh": "湍流",
+    "en": "Turbulence",
+    "min": 0.35,
+    "max": 1.65,
+    "step": 0.01
+   },
+   {
+    "key": "radius",
+    "zh": "云径",
+    "en": "Radius",
+    "min": 1.8,
+    "max": 4.6,
+    "step": 0.01
+   },
+   {
+    "key": "colorShift",
+    "zh": "色相偏移",
+    "en": "Color shift",
+    "min": -3.14,
+    "max": 3.14,
+    "step": 0.01
+   },
+   {
+    "key": "pointerInfluence",
+    "zh": "指针影响",
+    "en": "Pointer influence",
+    "min": 0,
+    "max": 1.2,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.8,
+    "max": 5,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.02,
+    "max": 0.8,
+    "step": 0.01
+   }
+  ],
+  "colors": null,
+  "defaults": {
+   "speed": 0.72,
+   "intensity": 1.15,
+   "turbulence": 1,
+   "radius": 3,
+   "colorShift": 0,
+   "pointerInfluence": 0.45,
+   "introDuration": 2.2,
+   "introFeather": 0.22
+  }
+ },
+ "blinking-squares": {
+  "storeKey": "code-codex:blinking-squares-background:v1",
+  "qualityDefault": "high",
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Speed",
+    "min": 0,
+    "max": 2,
+    "step": 0.01
+   },
+   {
+    "key": "intensity",
+    "zh": "云层强度",
+    "en": "Intensity",
+    "min": 0.3,
+    "max": 2.4,
+    "step": 0.01
+   },
+   {
+    "key": "turbulence",
+    "zh": "湍流",
+    "en": "Turbulence",
+    "min": 0.35,
+    "max": 1.65,
+    "step": 0.01
+   },
+   {
+    "key": "radius",
+    "zh": "云径",
+    "en": "Radius",
+    "min": 1.8,
+    "max": 4.6,
+    "step": 0.01
+   },
+   {
+    "key": "colorShift",
+    "zh": "色相偏移",
+    "en": "Color shift",
+    "min": -3.14,
+    "max": 3.14,
+    "step": 0.01
+   },
+   {
+    "key": "pointerInfluence",
+    "zh": "指针影响",
+    "en": "Pointer influence",
+    "min": 0,
+    "max": 1.2,
+    "step": 0.01
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Opening duration",
+    "min": 0.8,
+    "max": 5,
+    "step": 0.1,
+    "unit": "s"
+   },
+   {
+    "key": "introFeather",
+    "zh": "边缘羽化",
+    "en": "Edge feathering",
+    "min": 0.02,
+    "max": 0.8,
+    "step": 0.01
+   }
+  ],
+  "colors": null,
+  "defaults": {
+   "speed": 0.72,
+   "intensity": 1.15,
+   "turbulence": 1,
+   "radius": 3,
+   "colorShift": 0,
+   "pointerInfluence": 0.45,
+   "introDuration": 2.2,
+   "introFeather": 0.22
+  }
+ },
+ "particle-image": {
+  "storeKey": "code-codex:particle-image-background:v1",
+  "qualityDefault": "high",
+  "fields": [],
+  "colors": null,
+  "defaults": {}
+ },
+ "pixel-sculpt": {
+  "storeKey": "code-codex:pixel-sculpt-settings:v1",
+  "qualityDefault": "high",
+  "fields": [],
+  "colors": null,
+  "defaults": {}
+ }
+}

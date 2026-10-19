@@ -1,0 +1,163 @@
+{
+ "milky-way": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ },
+ "glow-horizon": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ },
+ "mountain": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ },
+ "black-hole": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ },
+ "cloud-train": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ },
+ "particle-image": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ },
+ "blinking-squares": {
+  "quality": "medium",
+  "speed": 0.35,
+  "amplitude": 1,
+  "frequency": 1,
+  "zoom": 1,
+  "rotation": 0,
+  "exposure": 1,
+  "timeOffset": 5.07,
+  "introDuration": 2.8,
+  "introFeather": 0.18,
+  "introAngle": 32,
+  "introZoom": 0.16,
+  "introEnabled": true,
+  "paused": false,
+  "colors": [
+   "#d81159",
+   "#8f2d56",
+   "#218380",
+   "#fbb13c",
+   "#73d2de"
+  ]
+ }
+}
