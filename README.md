@@ -1,4 +1,4 @@
-# dsh-awesome-appearances
+# dsh-ccx
 
 > 灵感与效果均来自 [Rice-dog/code-codex](https://github.com/Rice-dog/code-codex) 给 Codex Desktop 做的 Preview Market「Appearance」背景插件（动态 GPU 背景 / Custom Background / UI Surface Opacity / Transparent Background）。本仓库把**同一套效果**带给 DeepSeek Harness（DSH）桌面版 / Web 版：场景渲染器直接 vendor 原仓库首方 Appearance 包，表面方案照搬原仓库两层设计，全部走 DSH 官方插件机制（bundle + client 双侧，零 index 注入、零 CDP、零打包器）。
 
@@ -68,7 +68,7 @@ sha256 校验通过后导入 IndexedDB，约 14MB 首启一次）。
 
 在桌面端随便开一个会话，对 DSH 说：
 
-> 帮我安装本地插件 `dsh-awesome-appearances`，spec 用 `link:C:/Users/0x3F/Desktop/AI Engineering/Repo/DSH-Awesome-Appearances`
+> 帮我安装本地插件 `dsh-ccx`，spec 用 `link:C:/Users/0x3F/Desktop/AI Engineering/Repo/DSH-Awesome-Appearances`
 
 ### 方式 B：手工装配（关掉桌面端后）
 
@@ -77,9 +77,9 @@ sha256 校验通过后导入 IndexedDB，约 14MB 首启一次）。
    ```jsonc
    {
      "dependencies": {
-       "dsh-awesome-appearances": "link:C:/Users/0x3F/Desktop/AI Engineering/Repo/DSH-Awesome-Appearances"
+       "dsh-ccx": "link:C:/Users/0x3F/Desktop/AI Engineering/Repo/DSH-Awesome-Appearances"
      },
-     "dsh": { "profile": { "bundles": [ "...原有项...", "dsh-awesome-appearances" ] } }
+     "dsh": { "profile": { "bundles": [ "...原有项...", "dsh-ccx" ] } }
    }
    ```
 
