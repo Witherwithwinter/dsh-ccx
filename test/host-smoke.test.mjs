@@ -27,7 +27,7 @@ const root = {
 }
 
 plugin.apply(root)
-assert.strictEqual(routes.size, 18, 'should register 6 routes: ' + [...routes.keys()].join(', '))
+assert.strictEqual(routes.size, 19, 'should register 6 routes: ' + [...routes.keys()].join(', '))
 
 // —— 模拟请求工具 ——
 function mockReq(url, method, body) {
