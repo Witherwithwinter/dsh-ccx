@@ -1,11 +1,12 @@
 {
   "name": "dsh-ccx",
-  "version": "0.7.0",
-  "description": "DSH 界面背景主题插件（Appearance 系列，效果对齐 code-codex 原仓库）：原版全部 10 种场景渲染器（银河/辉光地平线/层峦/云穹/极光电离层/黑洞/云列车/粒子成像/像素雕塑/闪烁方块）原样 vendor、壁纸/视频素材库、通配透明 + data-slot 分区蒙版（对齐原仓库 surface-opacity）、实时预览 + 原版式场景设置抽屉（预设质量三档、每场景双语参数滑杆、五色色板、应用/重置）。深浅色自适应，设置双端同步。",
+  "version": "0.8.9",
+  "description": "DSH 桌面版背景主题插件：给 DeepSeek Harness 换上动态背景——10 种原版场景渲染器（银河 / 辉光地平线 / 层峦 / 云穹 / 极光电离层 / 黑洞 / 云列车 / 粒子成像 / 像素雕塑 / 闪烁方块）、壁纸视频素材库、UI 表面分区透明，以及逐像素复刻的 Appearance 设置面板。",
   "keywords": [
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
+    "deepseek",
     "appearance",
     "background",
     "theme",
@@ -24,12 +25,22 @@
     "lib",
     "assets",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "NOTICE"
   ],
   "engines": {
     "node": ">=18"
   },
-  "author": "0x3F",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Witherwithwinter/dsh-ccx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Witherwithwinter/dsh-ccx/issues"
+  },
+  "homepage": "https://github.com/Witherwithwinter/dsh-ccx#readme",
+  "author": "Witherwithwinter",
   "license": "MIT",
   "dsh": {
     "manifestVersion": 1,

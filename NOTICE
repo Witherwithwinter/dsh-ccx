@@ -1,0 +1,23 @@
+dsh-ccx
+Copyright (c) 2026 Witherwithwinter
+
+This project includes third-party materials, used under the MIT License:
+
+1. Code-Codex background renderers
+   Source: https://github.com/Rice-dog/code-codex
+   Files: lib/vendor/code-codex/ (scene renderer bundles, default gallery
+   images, scene schemas/defaults)
+   Copyright (c) Rice-dog and Code-Codex contributors, MIT License.
+   The renderer bundles are included unmodified (minified build artifacts);
+   their embedded license headers and third-party notices are preserved in
+   the bundle files. The bundled default gallery images are the originals
+   distributed by that project.
+
+2. DeepSeek Harness UI reproductions
+   The settings-panel UI (market popover, settings popover, sliders, toolbars,
+   tokens) reproduces the visual design of DeepSeek Harness (@deepseek-ai/dsh,
+   MIT License, Copyright (c) 2026 DeepSeek). This plugin is not affiliated
+   with or endorsed by DeepSeek.
+
+Both upstream projects are licensed under the MIT License; their original
+copyright and license statements are reproduced here as required.
