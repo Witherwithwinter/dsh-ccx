@@ -6,12 +6,13 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/dsh-ccx"><img src="https://img.shields.io/npm/v/dsh-ccx" alt="npm Version" /></a>
-  <a href="https://github.com/deepseek-ai/deepseek-harness"><img src="https://img.shields.io/badge/DSH-0.2.1--rc.2%2B-blue" alt="DSH Version" /></a>
+  <a href="https://www.npmjs.com/package/dsh-ccx"><img src="https://img.shields.io/npm/dt/dsh-ccx" alt="npm Total Downloads" /></a>
+  <a href="https://github.com/deepseek-ai/deepseek-harness"><img src="https://img.shields.io/badge/DSH-0.2.2--rc.5%2B-blue" alt="DSH Version" /></a>
   <a href="https://github.com/Witherwithwinter/dsh-ccx/stargazers"><img src="https://img.shields.io/github/stars/Witherwithwinter/dsh-ccx" alt="GitHub Stars" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/Witherwithwinter/dsh-ccx" alt="License" /></a>
 </p>
 
-<p align="center">给 DeepSeek Harness 桌面版换上动态背景：10 种场景渲染器、壁纸素材库、UI 表面分区透明，外加一个逐像素复刻的 Appearance 设置面板。</p>
+<p align="center">给 DeepSeek Harness 桌面版换上动态背景：同步 code-codex 上游 13 种动态场景渲染器、壁纸素材库、UI 表面分区透明（含 DSH 0.2.2 Windows 无边框标题栏与 Portal 隔离适配），外加原版复刻 Appearance 设置面板。</p>
 
 <table>
   <tr>
@@ -30,7 +31,7 @@
 
 ## 特性
 
-**10 种动态场景**——渲染器 1:1 来自 [Rice-dog/code-codex](https://github.com/Rice-dog/code-codex) 的 Appearance 系列（MIT，见[第三方归属](#第三方归属)）：
+**13 种动态场景**——渲染器 1:1 来自 [Rice-dog/code-codex](https://github.com/Rice-dog/code-codex) 的 Appearance 系列（MIT，见[第三方归属](#第三方归属)）：
 
 | 效果 | 场景 | 说明 |
 | --- | --- | --- |
@@ -44,12 +45,15 @@
 | <img src="./assets/scene-particle-image.png" width="160" /> | 粒子成像 Particle Image | 把图片采样成 56 万粒子，支持本地图库、自动轮播、鼠标交互、开场汇聚 |
 | <img src="./assets/scene-pixel-sculpt.png" width="160" /> | 像素雕塑 Pixel Sculpt | WebGL2 实例化浮雕方块，图片高度场 + 指针涟漪，自带完整参数面板 |
 | <img src="./assets/scene-blinking-squares.png" width="160" /> | 闪烁方块 Blinking Squares | 方块矩阵闪烁波纹，方向四选、键盘随机波纹 |
+| *Upstream v0.6+* | ASCII 字符砖块 ASCII Tiles | 玻璃质感字符网格、色散折射、分组一键重置与交互波纹 |
+| *Upstream v0.6+* | 浅海来信 Shallow Ocean Letters | 浅海生态与文字互动：10 种海洋生物点击/拖拽投放、奇遇事件图鉴收集与 5 连击开发者预览 |
+| *Upstream v0.6+* | 光谱点阵帷幕 Spectral Drape | 动态光谱点阵帷幕，支持交互波纹、点击水波与分组参数重置 |
 
-- **壁纸 / 视频素材库**：导入图片或 MP4/WebM，铺满 / 完整显示 / 平铺三种适配，与场景互斥切换。
-- **实时生效**：所有参数调整直接推给运行中的渲染器（上游 `updateSettings` 同语义）——不重建舞台、不重播开场动画。
-- **UI Surface Opacity**：通配透明让界面底色让位给背景，四个分区（会话侧栏 / 对话区 / 消息输入区 / 右侧栏）独立滑杆调节不透明度，外加背景压暗与模糊；**停用后输入框恢复原生样式**，圆角交界的缺口自动补齐，输入卡片周边的原生阴影与座位渐变也一并清理（透明背景下不会显出灰框）；**DSH 自己的设置页不受影响**——设置面板保持宿主原生样式，背景照常透出。
-- **Appearance 面板**：左下角齿轮弹出——12 张外观卡片（10 场景 + 壁纸 + 表面蒙版）+ 场景设置 popover，结构对齐 code-codex 0.5.7 真实 UI；启用某外观时已打开的设置面板自动关闭（上游交互语义）。
-- **设置双端同步**：全部状态落宿主 `state.json`，多窗口 / 重启后一致；场景参数只存增量，渲染器内嵌默认值始终是真值。
+- **壁纸 / 视频素材库**：导入图片或 MP4/WebM（支持 HTTP `Range` 分片流式播放与一键清空/分页浏览），铺满 / 完整显示 / 平铺三种适配。
+- **实时生效与双击输入**：所有参数调整直推运行中渲染器（`setSettings` / `updateSettings`），无需重建舞台；任意滑杆右侧数值支持双击直接键入精确数字。
+- **UI Surface Opacity（DSH 0.2.2+ 深度适配）**：通配清除严格限定在 `body > #root` 内，彻底保护挂载在 `body` 上的弹窗 / 设置面板 / 模型选择等 React Portal 不受误伤；自动穿透 Windows 无边框标题栏（`[data-windows-titlebar]` 与 `titleBarOverlay` 探测节点）；支持随深色/浅色主题动态切换蒙版底色。
+- **Appearance 面板**：左下角齿轮随侧边栏展开/折叠智能避让；15 张外观卡片（13 场景 + 壁纸 + 表面蒙版），局部更新不丢失滚动与分类页签状态。
+- **设置双端同步**：全部状态落 `$DSH_HOME/appearances/settings.json`，稀疏增量保存，多窗口 / 重启一致。
 
 ## 安装
 
@@ -80,7 +84,7 @@ DSH 的 plugin_manager 会解析包的 `dsh.bundle` 元数据并装配进 deskto
 ```jsonc
 {
   "dependencies": {
-    "dsh-ccx": "^0.8.9"                // 本地开发用 "link:/abs/path/to/dsh-ccx"
+    "dsh-ccx": "^0.9.0"                // 本地开发用 "link:/abs/path/to/dsh-ccx"
   },
   "dsh": {
     "profile": {
@@ -103,7 +107,8 @@ DSH 的 plugin_manager 会解析包的 `dsh.bundle` 元数据并装配进 deskto
 
 | 宿主 | 状态 |
 | --- | --- |
-| DSH 桌面版（Electron，`0.2.1-rc.2`） | ✅ 实机长期使用，全部功能端到端验证 |
+| DSH 桌面版（Electron，`0.2.2-rc.5`） | ✅ 已针对 `#root` 作用域隔离、`.centerCol` 圆角、Windows 标题栏与 `connection` 栅栏完成适配与测试 |
+| DSH 桌面版（Electron，`0.2.1-rc.2`） | ✅ 兼容保留 |
 
 插件对宿主内部结构有依赖（`data-slot` 布局锚点及其父级容器、宿主 webserver 路由、`state.json` 存储契约），已做 `typeof` / `try/catch` 降级，但宿主大版本升级仍可能失效。与宿主主题 / 皮肤插件的关系：本插件通过 `@layer` 级联 + CSS 变量控制表面底色，不覆写 `--dsw-*` token，皮肤插件改 token 不会与它冲突。
 
@@ -120,16 +125,19 @@ DSH 的 plugin_manager 会解析包的 `dsh.bundle` 元数据并装配进 deskto
 
 ## 开发
 
+项目自 `0.9.0` 起重构为模块化 TypeScript 架构（`src/` 源码经 `esbuild` 打包输出至预先提交的 `lib/`）：
+
 ```bash
 npm install
-node test/host-smoke.test.mjs   # 宿主半侧冒烟：路由、schema 真值锚点、设置规整
+npm run typecheck   # TypeScript 严格类型检查
+npm run build       # 构建 lib/index.js (ESM) 与 lib/client.js (DSH ModuleLoader 格式)
+npm test            # 运行宿主路由冒烟测试与客户端单元测试
 ```
 
-- `lib/index.js` 是宿主半边（cordis 插件，注册 `/dsh-ccx` 与 `/dsh-appearances/*` 数据路由：状态读写、壁纸上传删除、vendor 场景脚本与图库媒体下发）。
-- `lib/client.js` 是客户端半边（注入页面）：背景层与场景生命周期、通配透明 + 分区蒙版、Appearance 面板（Shadow DOM）、设置保存与轮询。
-- `lib/vendor/code-codex/` 是上游场景渲染器的构建产物与默认图库，**原样包含、不做修改**（`tools/gen-scene-schemas.cjs` 从上游源码机械提取字段真值）。
-- `tools/` 是开发辅助脚本：CDP 面板/场景采集、上下游逐帧对比（pixelmatch）、宿主窗口恢复等；`tools/cdp.cjs` 是调试用 CDP 助手（宿主需带 `--remote-debugging-port=9222` 启动）。
-- `tmp-code-codex/`（上游完整克隆，调试对照用）不入库。
+- `src/shared/`：13 场景元数据、默认配置、参数夹取与跨端规整（`types.ts` / `constants.ts` / `sanitize.ts`）。
+- `src/host/`：宿主插件（Cordis 服务端）：异步配置持久化（`storage.ts`）、`connection` 信任栅栏（`fence.ts`）、Electron 窗体探测（`window-chrome.ts`）、支持 `Range` 206 流式播放的 HTTP 路由（`routes.ts`）。
+- `src/client/`：前端扩展：舞台管理与供应商懒加载（`background/*`）、`Shallow Ocean` 互动生物/奇遇控制（`background/shallow-ocean.ts`）、Portal 安全透明与 Windows 标题栏适配（`surfaces/*`）、Shadow DOM 设置面板（`ui/*`）。
+- `lib/vendor/code-codex/`：上游场景渲染器与默认图库产物，`tools/gen-scene-schemas.cjs --codex-dir <path>` 可从上游源码同步提取 `scene-schemas.json` 与 `scene-defaults.json`。
 
 ## 第三方归属
 

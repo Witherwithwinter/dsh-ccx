@@ -27,15 +27,15 @@ const root = {
 }
 
 plugin.apply(root)
-assert.strictEqual(routes.size, 19, 'should register 6 routes: ' + [...routes.keys()].join(', '))
+assert.strictEqual(routes.size, 25, 'should register 25 routes: ' + [...routes.keys()].join(', '))
 
 // —— 模拟请求工具 ——
-function mockReq(url, method, body) {
+function mockReq(url, method, body, extraHeaders) {
   const chunks = body == null ? [] : [Buffer.from(body)]
   return {
     url,
     method,
-    headers: { host: '127.0.0.1:9', 'sec-fetch-site': 'same-origin' },
+    headers: Object.assign({ host: '127.0.0.1:9', 'sec-fetch-site': 'same-origin' }, extraHeaders || {}),
     on(ev, cb) {
       if (ev === 'data' && chunks.length) cb(chunks[0])
       if (ev === 'end') cb()
@@ -53,23 +53,23 @@ function mockRes() {
   done.res = res
   return done
 }
-async function call(pathname, method, body) {
+async function call(pathname, method, body, extraHeaders) {
   const pathOnly = pathname.split('?')[0]
   const route = routes.get('exact:' + pathOnly)
   assert(route, 'route missing: ' + pathname)
-  const req = mockReq(pathname, method, body)
+  const req = mockReq(pathname, method, body, extraHeaders)
   const done = mockRes()
   await route.handler(req, done.res)
   const res = await done
   return { status: res.code, json: (() => { try { return JSON.parse(res.body) } catch { return null } })(), headers: res.headers, body: res.body }
 }
 
-// 1) 初始状态 = 默认值（v5：蒙版对齐原版两档，dim 关，无 quality）
+// 1) 初始状态 = 默认值（v6：蒙版对齐原版两档，dim 关）
 let r = await call('/dsh-appearances/state.json', 'GET')
 assert.strictEqual(r.status, 200)
 assert.strictEqual(r.json.ok, true)
 assert.deepStrictEqual(r.json.settings, DEFAULT_SETTINGS)
-assert.strictEqual(r.json.scenes.length, 10, "10 code-codex scenes")
+assert.strictEqual(r.json.scenes.length, 13, "13 code-codex scenes")
 assert.strictEqual(DEFAULT_SETTINGS.scene, 'milky-way')
 assert.strictEqual(DEFAULT_SETTINGS.version, 6)
 assert.strictEqual(DEFAULT_SETTINGS.surfaces.composer, 86, 'composer = 原版 surface-opacity 面板档 .86（输入区默认不透）')
@@ -115,12 +115,27 @@ assert.strictEqual(r.json.wallpapers.length, 1)
 r = await call('/dsh-appearances/wallpaper.png?id=' + wp.id, 'GET')
 assert.strictEqual(r.status, 200)
 assert.strictEqual(r.headers['Content-Type'], 'image/png')
+assert.strictEqual(r.headers['Accept-Ranges'], 'bytes')
+
+r = await call('/dsh-appearances/wallpaper?id=' + wp.id, 'GET', null, { range: 'bytes=0-3' })
+assert.strictEqual(r.status, 206, 'Range request should return 206')
+assert.strictEqual(r.headers['Content-Range'], 'bytes 0-3/8')
+assert.deepStrictEqual(Buffer.from(r.body), Buffer.from([0x89, 0x50, 0x4e, 0x47]))
+
+r = await call('/dsh-appearances/wallpaper?id=' + wp.id, 'GET', null, { range: 'bytes=999-1000' })
+assert.strictEqual(r.status, 416, 'out-of-bounds range returns 416')
 
 r = await call('/dsh-appearances/wallpaper-delete.json', 'POST', JSON.stringify({ id: wp.id }))
 assert.strictEqual(r.json.ok, true)
 assert.strictEqual(r.json.wallpapers.length, 0)
 
-// 5) vendor 场景路由：真文件 200，未知场景 404（exact 路由天然免穿越）
+const rUp2 = await call('/dsh-appearances/wallpaper-upload?name=wall2.png', 'POST', pngBytes)
+assert.strictEqual(rUp2.json.wallpapers.length, 1)
+r = await call('/dsh-appearances/wallpaper-clear.json', 'POST', '{}')
+assert.strictEqual(r.json.ok, true)
+assert.strictEqual(r.json.wallpapers.length, 0, 'clear-all removes all wallpapers')
+
+// 5) vendor 场景路由：13 个场景 + 新场景验证
 r = await call('/dsh-appearances/vendor/milky-way.js', 'GET')
 assert.strictEqual(r.status, 200, 'vendor scene served')
 assert.ok(r.body.includes('code-codex'), 'vendor body looks right')
@@ -128,9 +143,28 @@ r = await call('/dsh-appearances/vendor/black-hole.js', 'GET')
 assert.strictEqual(r.status, 200, 'black-hole served')
 r = await call('/dsh-appearances/vendor/particle-image.js', 'GET')
 assert.strictEqual(r.status, 200, 'particle-image served')
+r = await call('/dsh-appearances/vendor/ascii-tiles.js', 'GET')
+assert.strictEqual(r.status, 200, 'ascii-tiles served')
+r = await call('/dsh-appearances/vendor/shallow-ocean.js', 'GET')
+assert.strictEqual(r.status, 200, 'shallow-ocean served')
+r = await call('/dsh-appearances/vendor/spectral-drape.js', 'GET')
+assert.strictEqual(r.status, 200, 'spectral-drape served')
+
+r = await call('/dsh-appearances/vendor-shallow-ocean-thumbs.json', 'GET')
+assert.strictEqual(r.status, 200, 'shallow-ocean thumbnails served')
+const oceanThumbs = JSON.parse(r.body)
+assert.ok(oceanThumbs.manta && oceanThumbs.shark && oceanThumbs.turtle, 'ocean creature thumbs present')
+
 r = await call('/dsh-appearances/scene-schemas.json', 'GET')
 assert.strictEqual(r.status, 200, 'scene schemas served')
 const schemas = JSON.parse(r.body)
+assert.strictEqual(Object.keys(schemas).length, 13, '13 schemas')
+assert.strictEqual(schemas['ascii-tiles'].defaults.speed, 0.87)
+assert.strictEqual(schemas['ascii-tiles'].groups.length, 4)
+assert.strictEqual(schemas['shallow-ocean'].defaults.introEnabled, 1)
+assert.strictEqual(schemas['shallow-ocean'].groups.length, 6)
+assert.strictEqual(schemas['spectral-drape'].defaults.paused, false)
+assert.strictEqual(schemas['spectral-drape'].groups.length, 4)
 assert.ok(schemas['milky-way'].fields.length >= 10, 'milky-way schema fields')
 // schema 与上游真值的一致性锚点（防生成器回归到手抄模板）
 assert.strictEqual(schemas['milky-way'].defaults.speed, 0.35, 'milky-way 内嵌默认 speed')
@@ -177,7 +211,35 @@ resCode = 0
 await fence.handler(evilReq, resStub)
 assert.strictEqual(resCode, 403, 'spoofed host rejected (no connection fence)')
 
-// 8) 设置文件真的落在 $DSH_HOME/appearances/
+// 8) connectionFence 委托测试（ctx.get('connectionFence')）
+const fencedRoutes = new Map()
+plugin.apply({
+  inject(_s, cb) {
+    cb({
+      webServer: {
+        register(route) { fencedRoutes.set(route.path, route); return () => {} },
+      },
+      get(name) {
+        if (name === 'connection') {
+          return { requestRejection: () => 403 }
+        }
+        return null
+      },
+    })
+  },
+  effect() {},
+})
+const fencedRoute = fencedRoutes.get('/dsh-appearances/state.json')
+let fenceDelegatedCode = 0
+await fencedRoute.handler(mockReq('/dsh-appearances/state.json', 'GET'), {
+  writeHead(c) { fenceDelegatedCode = c },
+  end() {},
+})
+assert.strictEqual(fenceDelegatedCode, 403, 'connectionFence delegation honored')
+
+// 9) 设置文件真的落在 $DSH_HOME/appearances/
 assert.ok(fs.existsSync(path.join(tmpHome, 'appearances', 'settings.json')))
+
+try { fs.rmSync(tmpHome, { recursive: true, force: true }) } catch {}
 
 console.log('host-smoke: all assertions passed ✓')

@@ -1,7 +1,13 @@
 {
   "name": "dsh-ccx",
-  "version": "0.8.9",
-  "description": "DSH 桌面版背景主题插件：给 DeepSeek Harness 换上动态背景——10 种原版场景渲染器（银河 / 辉光地平线 / 层峦 / 云穹 / 极光电离层 / 黑洞 / 云列车 / 粒子成像 / 像素雕塑 / 闪烁方块）、壁纸视频素材库、UI 表面分区透明，以及逐像素复刻的 Appearance 设置面板。",
+  "version": "0.9.0",
+  "description": "DSH 桌面版背景主题插件：给 DeepSeek Harness 0.2.2+ 换上动态背景——13 种同步 code-codex 上游的原版场景渲染器（新增 ASCII 字符砖块 / 浅海字迹 / 光谱帷幔）、壁纸视频素材库、UI 表面分区透明与 Windows 标题栏适配，以及原版复刻设置面板。",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:dev": "node scripts/build.mjs --dev",
+    "typecheck": "tsc --noEmit",
+    "test": "node test/host-smoke.test.mjs && node test/client-unit.test.mjs"
+  },
   "keywords": [
     "dsh",
     "dsh-plugin",
@@ -23,8 +29,10 @@
   },
   "files": [
     "lib",
+    "src",
     "assets",
     "cordis.patch.yml",
+    "tsconfig.json",
     "README.md",
     "LICENSE",
     "NOTICE"
@@ -53,7 +61,10 @@
     }
   },
   "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
     "pixelmatch": "^8.0.0",
-    "pngjs": "^7.0.0"
+    "pngjs": "^7.0.0",
+    "typescript": "^7.0.2"
   }
 }

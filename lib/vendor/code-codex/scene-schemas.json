@@ -1953,5 +1953,1013 @@
   "colorFields": [],
   "toggles": [],
   "defaults": {}
+ },
+ "ascii-tiles": {
+  "storeKey": "code-codex:ascii-tiles-background:v1",
+  "panelKind": "grouped-reset",
+  "groups": [
+   {
+    "key": "g0",
+    "en": "Grid and motion",
+    "zh": "网格与流动",
+    "keys": [
+     "speed",
+     "glyphSize",
+     "tileDensity",
+     "tileShear",
+     "tileGap",
+     "opacity",
+     "dpr",
+     "paused"
+    ]
+   },
+   {
+    "key": "g1",
+    "en": "Glass material",
+    "zh": "玻璃材质",
+    "keys": [
+     "outlineWidth",
+     "outlineStrength",
+     "bevelWidth",
+     "bevelSoftness",
+     "refractionStrength",
+     "chromaticSpread",
+     "specularExponent",
+     "specularStrength"
+    ]
+   },
+   {
+    "key": "g2",
+    "en": "Pattern and colors",
+    "zh": "图案与颜色",
+    "keys": [
+     "patternFreqX",
+     "patternFreqY",
+     "patternFreqXY",
+     "glyphColor",
+     "recessColor",
+     "backgroundColor"
+    ]
+   },
+   {
+    "key": "g3",
+    "en": "Interaction",
+    "zh": "交互波纹",
+    "keys": [
+     "cursorInteraction",
+     "cursorRadius",
+     "cursorIntensity",
+     "cursorRecovery",
+     "waveSpeed",
+     "waveHeight",
+     "clickStrength"
+    ]
+   }
+  ],
+  "fields": [
+   {
+    "key": "speed",
+    "zh": "流动速度",
+    "en": "Flow speed",
+    "group": "g0",
+    "min": 0,
+    "max": 3,
+    "step": 0.01,
+    "unit": "×",
+    "precision": 2
+   },
+   {
+    "key": "glyphSize",
+    "zh": "字符大小",
+    "en": "Glyph size",
+    "group": "g0",
+    "min": 4,
+    "max": 24,
+    "step": 1,
+    "unit": "px",
+    "precision": 0
+   },
+   {
+    "key": "tileDensity",
+    "zh": "砖块密度",
+    "en": "Tile density",
+    "group": "g0",
+    "min": 1,
+    "max": 12,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   },
+   {
+    "key": "tileShear",
+    "zh": "砖块倾斜",
+    "en": "Tile shear",
+    "group": "g0",
+    "min": -0.5,
+    "max": 0.5,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "tileGap",
+    "zh": "砖块间距",
+    "en": "Tile gap",
+    "group": "g0",
+    "min": 0,
+    "max": 40,
+    "step": 0.5,
+    "unit": "px",
+    "precision": 1
+   },
+   {
+    "key": "opacity",
+    "zh": "不透明度",
+    "en": "Opacity",
+    "group": "g0",
+    "min": 0,
+    "max": 1,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "dpr",
+    "zh": "像素倍率上限",
+    "en": "Pixel ratio limit",
+    "group": "g0",
+    "min": 1,
+    "max": 3,
+    "step": 0.1,
+    "unit": "×",
+    "precision": 1
+   },
+   {
+    "key": "outlineWidth",
+    "zh": "边缘宽度",
+    "en": "Edge width",
+    "group": "g1",
+    "min": 0,
+    "max": 6,
+    "step": 0.25,
+    "unit": "px",
+    "precision": 2
+   },
+   {
+    "key": "outlineStrength",
+    "zh": "边缘强度",
+    "en": "Edge strength",
+    "group": "g1",
+    "min": 0,
+    "max": 1,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "bevelWidth",
+    "zh": "倒角宽度",
+    "en": "Bevel width",
+    "group": "g1",
+    "min": 0,
+    "max": 0.5,
+    "step": 0.005,
+    "unit": "",
+    "precision": 3
+   },
+   {
+    "key": "bevelSoftness",
+    "zh": "倒角柔和度",
+    "en": "Bevel softness",
+    "group": "g1",
+    "min": 0.01,
+    "max": 0.4,
+    "step": 0.005,
+    "unit": "",
+    "precision": 3
+   },
+   {
+    "key": "refractionStrength",
+    "zh": "折射强度",
+    "en": "Refraction",
+    "group": "g1",
+    "min": 0,
+    "max": 120,
+    "step": 1,
+    "unit": "",
+    "precision": 0
+   },
+   {
+    "key": "chromaticSpread",
+    "zh": "色散",
+    "en": "Chromatic spread",
+    "group": "g1",
+    "min": 0,
+    "max": 1,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "specularExponent",
+    "zh": "高光锐度",
+    "en": "Highlight sharpness",
+    "group": "g1",
+    "min": 1,
+    "max": 256,
+    "step": 1,
+    "unit": "",
+    "precision": 0
+   },
+   {
+    "key": "specularStrength",
+    "zh": "高光强度",
+    "en": "Highlight strength",
+    "group": "g1",
+    "min": 0,
+    "max": 3,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "patternFreqX",
+    "zh": "水平频率",
+    "en": "Horizontal frequency",
+    "group": "g2",
+    "min": 0,
+    "max": 20,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   },
+   {
+    "key": "patternFreqY",
+    "zh": "垂直频率",
+    "en": "Vertical frequency",
+    "group": "g2",
+    "min": 0,
+    "max": 20,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   },
+   {
+    "key": "patternFreqXY",
+    "zh": "对角频率",
+    "en": "Diagonal frequency",
+    "group": "g2",
+    "min": 0,
+    "max": 20,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   },
+   {
+    "key": "cursorRadius",
+    "zh": "交互半径",
+    "en": "Interaction radius",
+    "group": "g3",
+    "min": 20,
+    "max": 400,
+    "step": 1,
+    "unit": "px",
+    "precision": 0
+   },
+   {
+    "key": "cursorIntensity",
+    "zh": "拖动强度",
+    "en": "Drag strength",
+    "group": "g3",
+    "min": 0,
+    "max": 3,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "cursorRecovery",
+    "zh": "波动消退",
+    "en": "Wave decay",
+    "group": "g3",
+    "min": 0.4,
+    "max": 4,
+    "step": 0.05,
+    "unit": "s",
+    "precision": 2
+   },
+   {
+    "key": "waveSpeed",
+    "zh": "传播速度",
+    "en": "Propagation speed",
+    "group": "g3",
+    "min": 1,
+    "max": 12,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   },
+   {
+    "key": "waveHeight",
+    "zh": "波纹高度",
+    "en": "Wave height",
+    "group": "g3",
+    "min": 0,
+    "max": 80,
+    "step": 1,
+    "unit": "px",
+    "precision": 0
+   },
+   {
+    "key": "clickStrength",
+    "zh": "点击强度",
+    "en": "Click strength",
+    "group": "g3",
+    "min": 0,
+    "max": 3,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   }
+  ],
+  "colorFields": [
+   {
+    "key": "glyphColor",
+    "zh": "字符颜色",
+    "en": "Glyph color",
+    "group": "g2"
+   },
+   {
+    "key": "recessColor",
+    "zh": "砖缝颜色",
+    "en": "Gap color",
+    "group": "g2"
+   },
+   {
+    "key": "backgroundColor",
+    "zh": "背景颜色",
+    "en": "Background color",
+    "group": "g2"
+   }
+  ],
+  "toggles": [
+   {
+    "key": "paused",
+    "zh": "暂停流动",
+    "en": "Pause flow",
+    "group": "g0"
+   },
+   {
+    "key": "cursorInteraction",
+    "zh": "砖块联动",
+    "en": "Tile interaction",
+    "group": "g3"
+   }
+  ],
+  "defaults": {
+   "speed": 0.87,
+   "glyphSize": 9,
+   "tileDensity": 6.7,
+   "tileShear": -0.31,
+   "tileGap": 18.5,
+   "outlineWidth": 1.25,
+   "outlineStrength": 0.6,
+   "bevelWidth": 0.13,
+   "bevelSoftness": 0.1,
+   "refractionStrength": 46,
+   "chromaticSpread": 0.66,
+   "specularExponent": 256,
+   "specularStrength": 1,
+   "patternFreqX": 9.4,
+   "patternFreqY": 4,
+   "patternFreqXY": 10,
+   "glyphColor": "#ffffff",
+   "recessColor": "#000000",
+   "backgroundColor": "#000000",
+   "opacity": 0.6,
+   "dpr": 1.5,
+   "cursorInteraction": true,
+   "cursorRadius": 110,
+   "cursorIntensity": 1,
+   "cursorRecovery": 0.95,
+   "waveSpeed": 5.5,
+   "waveHeight": 36,
+   "clickStrength": 1.5,
+   "paused": false
+  }
+ },
+ "spectral-drape": {
+  "storeKey": "code-codex:spectral-drape-background:v1",
+  "panelKind": "grouped-reset",
+  "groups": [
+   {
+    "key": "g0",
+    "en": "Points and colors",
+    "zh": "点阵与颜色",
+    "keys": [
+     "bodyColor",
+     "highlightColor",
+     "backgroundColor",
+     "density",
+     "dotSize",
+     "softness",
+     "intensity",
+     "colorShift",
+     "dpr"
+    ]
+   },
+   {
+    "key": "g1",
+    "en": "Folds and view",
+    "zh": "褶皱与视角",
+    "keys": [
+     "strands",
+     "amplitude",
+     "frequency",
+     "thickness",
+     "depth",
+     "seed",
+     "tilt",
+     "turn",
+     "roll",
+     "zoom"
+    ]
+   },
+   {
+    "key": "g2",
+    "en": "Motion and interaction",
+    "zh": "动态与交互",
+    "keys": [
+     "flow",
+     "speed",
+     "paused",
+     "interactive",
+     "brush",
+     "brushRadius",
+     "parallax",
+     "clickRipples"
+    ]
+   },
+   {
+    "key": "g3",
+    "en": "Opening",
+    "zh": "开场动画",
+    "keys": [
+     "introEnabled",
+     "introDuration",
+     "introStrength"
+    ]
+   }
+  ],
+  "fields": [
+   {
+    "key": "density",
+    "zh": "密度",
+    "en": "Density",
+    "group": "g0",
+    "min": 0.2,
+    "max": 2.5,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "dotSize",
+    "zh": "点大小",
+    "en": "Dot size",
+    "group": "g0",
+    "min": 0.2,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "softness",
+    "zh": "柔和度",
+    "en": "Softness",
+    "group": "g0",
+    "min": 0,
+    "max": 1,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "intensity",
+    "zh": "亮度",
+    "en": "Intensity",
+    "group": "g0",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "colorShift",
+    "zh": "色彩偏移",
+    "en": "Color shift",
+    "group": "g0",
+    "min": -1,
+    "max": 1,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "dpr",
+    "zh": "像素倍率上限",
+    "en": "Pixel ratio limit",
+    "group": "g0",
+    "min": 0.5,
+    "max": 2,
+    "step": 0.25,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "strands",
+    "zh": "丝束",
+    "en": "Strands",
+    "group": "g1",
+    "min": 1,
+    "max": 12,
+    "step": 1,
+    "unit": "",
+    "precision": 0
+   },
+   {
+    "key": "amplitude",
+    "zh": "振幅",
+    "en": "Amplitude",
+    "group": "g1",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "frequency",
+    "zh": "频率",
+    "en": "Frequency",
+    "group": "g1",
+    "min": 0.1,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "thickness",
+    "zh": "宽度",
+    "en": "Thickness",
+    "group": "g1",
+    "min": 0.2,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "depth",
+    "zh": "深度",
+    "en": "Depth",
+    "group": "g1",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "seed",
+    "zh": "种子",
+    "en": "Seed",
+    "group": "g1",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "unit": "",
+    "precision": 0
+   },
+   {
+    "key": "tilt",
+    "zh": "俯仰",
+    "en": "Tilt",
+    "group": "g1",
+    "min": -90,
+    "max": 90,
+    "step": 1,
+    "unit": "°",
+    "precision": 0
+   },
+   {
+    "key": "turn",
+    "zh": "偏航",
+    "en": "Turn",
+    "group": "g1",
+    "min": -90,
+    "max": 90,
+    "step": 1,
+    "unit": "°",
+    "precision": 0
+   },
+   {
+    "key": "roll",
+    "zh": "旋转",
+    "en": "Roll",
+    "group": "g1",
+    "min": -180,
+    "max": 180,
+    "step": 1,
+    "unit": "°",
+    "precision": 0
+   },
+   {
+    "key": "zoom",
+    "zh": "缩放",
+    "en": "Zoom",
+    "group": "g1",
+    "min": 0.4,
+    "max": 2.5,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "flow",
+    "zh": "演化速率",
+    "en": "Flow",
+    "group": "g2",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "speed",
+    "zh": "全局速度",
+    "en": "Speed",
+    "group": "g2",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "brush",
+    "zh": "推拂力度",
+    "en": "Brush strength",
+    "group": "g2",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "brushRadius",
+    "zh": "推拂半径",
+    "en": "Brush radius",
+    "group": "g2",
+    "min": 0.05,
+    "max": 0.6,
+    "step": 0.01,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "parallax",
+    "zh": "视差",
+    "en": "Parallax",
+    "group": "g2",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "introDuration",
+    "zh": "开场时长",
+    "en": "Duration",
+    "group": "g3",
+    "min": 0.8,
+    "max": 12,
+    "step": 0.1,
+    "unit": "s",
+    "precision": 1
+   },
+   {
+    "key": "introStrength",
+    "zh": "展开与旋转幅度",
+    "en": "Unfurl / turn",
+    "group": "g3",
+    "min": 0,
+    "max": 2,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   }
+  ],
+  "colorFields": [
+   {
+    "key": "bodyColor",
+    "zh": "主体颜色",
+    "en": "Body color",
+    "group": "g0"
+   },
+   {
+    "key": "highlightColor",
+    "zh": "高光颜色",
+    "en": "Highlight color",
+    "group": "g0"
+   },
+   {
+    "key": "backgroundColor",
+    "zh": "背景颜色",
+    "en": "Background color",
+    "group": "g0"
+   }
+  ],
+  "toggles": [
+   {
+    "key": "paused",
+    "zh": "暂停流动",
+    "en": "Pause flow",
+    "group": "g2"
+   },
+   {
+    "key": "interactive",
+    "zh": "鼠标交互",
+    "en": "Pointer interaction",
+    "group": "g2"
+   },
+   {
+    "key": "clickRipples",
+    "zh": "点击涟漪",
+    "en": "Click ripples",
+    "group": "g2"
+   },
+   {
+    "key": "introEnabled",
+    "zh": "开场动画",
+    "en": "Opening",
+    "group": "g3"
+   }
+  ],
+  "defaults": {
+   "bodyColor": "#6A4BFF",
+   "highlightColor": "#E4DBFF",
+   "backgroundColor": "#0a0a0a",
+   "density": 1,
+   "dotSize": 0.55,
+   "strands": 9,
+   "amplitude": 1,
+   "frequency": 1,
+   "thickness": 2.15,
+   "depth": 1.2,
+   "softness": 0.6,
+   "intensity": 1,
+   "colorShift": 0.3,
+   "tilt": -40,
+   "turn": -45,
+   "roll": 110,
+   "zoom": 1,
+   "flow": 1,
+   "speed": 1,
+   "interactive": true,
+   "brush": 1,
+   "brushRadius": 0.2,
+   "parallax": 1,
+   "clickRipples": true,
+   "seed": 0,
+   "paused": false,
+   "dpr": 2,
+   "introEnabled": true,
+   "introDuration": 4.6,
+   "introStrength": 1
+  }
+ },
+ "shallow-ocean": {
+  "storeKey": "code-codex:shallow-ocean-background:v1",
+  "panelKind": "shallow-ocean",
+  "groups": [
+   {
+    "key": "g0",
+    "en": "Opening",
+    "zh": "开场",
+    "keys": [
+     "introEnabled",
+     "introDuration"
+    ]
+   },
+   {
+    "key": "g1",
+    "en": "Marine life",
+    "zh": "鱼群与生态",
+    "keys": [
+     "fishSpeed",
+     "fishSize"
+    ]
+   },
+   {
+    "key": "g2",
+    "en": "Water surface",
+    "zh": "水面与波浪",
+    "keys": [
+     "swell",
+     "rippleStrength"
+    ]
+   },
+   {
+    "key": "g3",
+    "en": "Water optics",
+    "zh": "水体光学",
+    "keys": [
+     "clarity",
+     "caustics"
+    ]
+   },
+   {
+    "key": "g4",
+    "en": "Coast and seabed",
+    "zh": "海岸与海床",
+    "keys": [
+     "beachSize",
+     "coralDensity",
+     "grassDensity"
+    ]
+   },
+   {
+    "key": "g5",
+    "en": "Ocean encounters",
+    "zh": "海洋奇遇",
+    "keys": [
+     "eventsEnabled"
+    ]
+   }
+  ],
+  "fields": [
+   {
+    "key": "introDuration",
+    "zh": "开场时长（秒）",
+    "en": "Opening duration",
+    "group": "g0",
+    "min": 1.5,
+    "max": 12,
+    "step": 0.1,
+    "unit": "s",
+    "precision": 1
+   },
+   {
+    "key": "fishSpeed",
+    "zh": "鱼类游动速度",
+    "en": "Swimming speed",
+    "group": "g1",
+    "min": 0,
+    "max": 3,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "fishSize",
+    "zh": "小鱼体型",
+    "en": "Fish size",
+    "group": "g1",
+    "min": 0.5,
+    "max": 2,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "swell",
+    "zh": "自然涌浪强度",
+    "en": "Natural swell",
+    "group": "g2",
+    "min": 0,
+    "max": 2,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "rippleStrength",
+    "zh": "互动波纹强度",
+    "en": "Interaction ripples",
+    "group": "g2",
+    "min": 0,
+    "max": 2.5,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "clarity",
+    "zh": "海水通透度",
+    "en": "Water clarity",
+    "group": "g3",
+    "min": 0.4,
+    "max": 1.8,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "caustics",
+    "zh": "水底焦散亮度",
+    "en": "Seabed caustics",
+    "group": "g3",
+    "min": 0,
+    "max": 2.5,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "beachSize",
+    "zh": "沙滩面积",
+    "en": "Beach size",
+    "group": "g4",
+    "min": 0,
+    "max": 2,
+    "step": 0.05,
+    "unit": "",
+    "precision": 2
+   },
+   {
+    "key": "coralDensity",
+    "zh": "珊瑚密度",
+    "en": "Coral density",
+    "group": "g4",
+    "min": 0.3,
+    "max": 2,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   },
+   {
+    "key": "grassDensity",
+    "zh": "海草密度",
+    "en": "Seagrass density",
+    "group": "g4",
+    "min": 0,
+    "max": 2,
+    "step": 0.1,
+    "unit": "",
+    "precision": 1
+   }
+  ],
+  "colorFields": [],
+  "toggles": [
+   {
+    "key": "introEnabled",
+    "zh": "启用开场动画",
+    "en": "Enable opening",
+    "group": "g0"
+   },
+   {
+    "key": "eventsEnabled",
+    "zh": "启用随机事件",
+    "en": "Automatic events",
+    "group": "g5"
+   }
+  ],
+  "defaults": {
+   "defaultCreaturesEnabled": 1,
+   "performanceMode": 0,
+   "silverCount": 72,
+   "reefCount": 12,
+   "clownCount": 6,
+   "sharkCount": 2,
+   "turtleCount": 2,
+   "beachSize": 1,
+   "fishSpeed": 1,
+   "fishSize": 1.15,
+   "schoolCohesion": 1,
+   "fleeRadius": 0.105,
+   "clarity": 1.15,
+   "caustics": 1.15,
+   "surfaceReflection": 0.3,
+   "sunGlint": 1,
+   "foamIntensity": 1,
+   "refractionScale": 1,
+   "shadowIntensity": 0.65,
+   "swell": 1,
+   "rippleStrength": 1,
+   "waterSpeed": 1,
+   "coralDensity": 1.2,
+   "grassDensity": 1.2,
+   "eventsEnabled": 1,
+   "introEnabled": 1,
+   "introDuration": 5.2,
+   "introIntensity": 1
+  }
  }
 }
