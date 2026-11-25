@@ -8,8 +8,8 @@
   <a href="https://www.npmjs.com/package/dsh-ccx"><img src="https://img.shields.io/npm/v/dsh-ccx" alt="npm Version" /></a>
   <a href="https://www.npmjs.com/package/dsh-ccx"><img src="https://img.shields.io/npm/dt/dsh-ccx" alt="npm Total Downloads" /></a>
   <a href="https://github.com/deepseek-ai/deepseek-harness"><img src="https://img.shields.io/badge/DSH-0.2.2--rc.5%2B-blue" alt="DSH Version" /></a>
-  <a href="https://github.com/Witherwithwinter/dsh-ccx/stargazers"><img src="https://img.shields.io/github/stars/Witherwithwinter/dsh-ccx" alt="GitHub Stars" /></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/github/license/Witherwithwinter/dsh-ccx" alt="License" /></a>
+  <a href="https://github.com/0x2fovo/dsh-ccx/stargazers"><img src="https://img.shields.io/github/stars/0x2fovo/dsh-ccx" alt="GitHub Stars" /></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/0x2fovo/dsh-ccx" alt="License" /></a>
 </p>
 
 <p align="center">给 DeepSeek Harness 桌面版换上动态背景：同步 code-codex 上游 13 种动态场景渲染器、壁纸素材库、UI 表面分区透明（含 DSH 0.2.2 Windows 无边框标题栏与 Portal 隔离适配），外加原版复刻 Appearance 设置面板。</p>
@@ -72,7 +72,7 @@ DSH 的 plugin_manager 会解析包的 `dsh.bundle` 元数据并装配进 deskto
 ### 方法 B：GitHub 源码
 
 ```text
-安装 github:Witherwithwinter/dsh-ccx
+安装 github:0x2fovo/dsh-ccx
 ```
 
 同样重启生效。
@@ -112,7 +112,7 @@ DSH 的 plugin_manager 会解析包的 `dsh.bundle` 元数据并装配进 deskto
 
 插件对宿主内部结构有依赖（`data-slot` 布局锚点及其父级容器、宿主 webserver 路由、`state.json` 存储契约），已做 `typeof` / `try/catch` 降级，但宿主大版本升级仍可能失效。与宿主主题 / 皮肤插件的关系：本插件通过 `@layer` 级联 + CSS 变量控制表面底色，不覆写 `--dsw-*` token，皮肤插件改 token 不会与它冲突。
 
-与 [DSH-Codinput](https://github.com/Witherwithwinter/DSH-Codinput) 协作：安装 Codinput 后，「消息输入区」蒙版精确命中它的编辑器卡片（`[data-composer-card]`），普通 / 悬浮 / 侧栏三种形态都跟随；未安装 Codinput 时输入区由对话区蒙版兜底。
+与 [DSH-Codinput](https://github.com/0x2fovo/DSH-Codinput) 协作：安装 Codinput 后，「消息输入区」蒙版精确命中它的编辑器卡片（`[data-composer-card]`），普通 / 悬浮 / 侧栏三种形态都跟随；未安装 Codinput 时输入区由对话区蒙版兜底。
 
 ## 已知限制
 

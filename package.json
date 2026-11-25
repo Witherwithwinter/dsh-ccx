@@ -42,13 +42,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Witherwithwinter/dsh-ccx.git"
+    "url": "git+https://github.com/0x2fovo/dsh-ccx.git"
   },
   "bugs": {
-    "url": "https://github.com/Witherwithwinter/dsh-ccx/issues"
+    "url": "https://github.com/0x2fovo/dsh-ccx/issues"
   },
-  "homepage": "https://github.com/Witherwithwinter/dsh-ccx#readme",
-  "author": "Witherwithwinter",
+  "homepage": "https://github.com/0x2fovo/dsh-ccx#readme",
+  "author": "0x2fovo",
   "license": "MIT",
   "dsh": {
     "manifestVersion": 1,
